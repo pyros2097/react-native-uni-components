@@ -1,22 +1,24 @@
 {
   "name": "@pyros2097/components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "test"
   },
-  "peerDependencies": {
-    "@react-navigation/native": "^5.2.3",
-    "@react-navigation/stack": "^5.2.18",
-    "react": "~16.9.0",
-    "react-dom": "~16.9.0",
-    "react-native": "~0.61.5",
-    "react-native-web": "~0.11.7",
-    "@unform/core": "^2.1.0",
-    "@unform/mobile": "^2.1.0",
+  "dependencies": {
     "history": "^4.10.1",
     "use-media": "^1.4.0"
+  },
+  "peerDependencies": {
+    "@react-navigation/native": ">5.2.3",
+    "@react-navigation/stack": ">5.2.18",
+    "react": ">16.9.0",
+    "react-dom": ">16.9.0",
+    "react-native": ">0.61.5",
+    "react-native-web": ">0.11.7",
+    "@unform/core": ">2.1.0",
+    "@unform/mobile": ">2.1.0"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
