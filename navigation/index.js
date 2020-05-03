@@ -27,7 +27,7 @@ export const getUrl = (name, params) => {
   return name[0].toLowerCase() + name.slice(1) + (query ? '?' + query : '');
 };
 
-export default WebNavigationContainer = ({ setNavigation, children }) => {
+export const WebNavigationContainer = ({ setNavigation, children }) => {
   const [currentScreen, setCurrentScreen] = useState(null);
   const navigationRef = useRef();
   useEffect(() => {

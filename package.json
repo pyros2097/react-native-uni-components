@@ -1,6 +1,6 @@
 {
-  "name": "@pyros2097/react-native-components",
-  "version": "0.0.7",
+  "name": "react-native-uni-components",
+  "version": "0.0.9",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -20,12 +20,9 @@
     "@unform/core": ">=2.1.0",
     "@unform/mobile": ">=2.1.0"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/pyros2097/components.git"
+    "url": "git@github.com/pyros2097/components.git"
   },
   "author": "",
   "license": "ISC",
