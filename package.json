@@ -1,0 +1,33 @@
+{
+  "name": "react-native-uni-components",
+  "version": "0.0.9",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies": {
+    "history": "^4.10.1",
+    "use-media": "^1.4.0"
+  },
+  "peerDependencies": {
+    "@react-navigation/native": ">=5.2.3",
+    "@react-navigation/stack": ">=5.2.18",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0",
+    "react-native": ">=0.61.5",
+    "react-native-web": ">=0.11.7",
+    "@unform/core": ">=2.1.0",
+    "@unform/mobile": ">=2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/pyros2097/components.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pyros2097/components/issues"
+  },
+  "homepage": "https://github.com/pyros2097/components#readme"
+}
