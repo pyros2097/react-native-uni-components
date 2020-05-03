@@ -5,6 +5,6 @@ import Spinner from './Spinner';
 import ErrorLine from './ErrorLine';
 import Button from './Button';
 import Image from './Image';
-import Header from './Header';
+import Theme from './Theme';
 
-export { Box, Text, TextInput, Spinner, ErrorLine, Button, Image, Header };
+export { Box, Text, TextInput, Spinner, ErrorLine, Button, Image, Theme };
