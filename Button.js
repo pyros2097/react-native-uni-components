@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { Touch } from './Box';
+import { Touch } from './Box';
 import Spinner from './Spinner';
 import Text from './Text';
 import { useTheme } from './hooks';
