@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   const [navigation, setNavigation] = useState(null);
-  const { name, params } = getInitialScreen();
+  const { name, params } = getInitialScreen('Home');
   return (
     <WebNavigationContainer setNavigation={setNavigation}>
       <WebNavigator Comp={Stack.Navigator} initialRouteName={name} initialRouteParams={params}>

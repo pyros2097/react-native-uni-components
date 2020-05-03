@@ -17,7 +17,7 @@ export const getInitialScreen = (initial) => {
   if (Platform.OS === 'web') {
     const path = window.location.pathname.replace('/', '');
     const params = queryString.parse(window.location.search);
-    return { name: path ? path : initial, params };
+    return { name: path ? path[0].toUpperCase() + path.slice(1) : initial, params };
   }
   return { name: initial, params: {} };
 };
