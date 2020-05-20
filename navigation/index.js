@@ -17,13 +17,15 @@ export const getActiveScreen = (state) => {
   return { name: route.name, params: route.params };
 };
 
-export const getInitialScreen = (initial) => {
+export const getInitialScreen = (initialRouteName, initialRouteParams) => {
   if (Platform.OS === 'web') {
     const path = window.location.pathname.replace('/', '');
     const params = queryString.parse(window.location.search);
-    return { name: path ? path[0].toUpperCase() + path.slice(1) : initial, params };
+    if (path) {
+      return { name: path[0].toUpperCase() + path.slice(1), params };
+    }
   }
-  return { name: initial, params: {} };
+  return { name: initialRouteName, params: initialRouteParams };
 };
 
 export const getUrl = (name, params) => {
@@ -67,11 +69,9 @@ export const WebNavigationContainer = ({ children }) => {
 };
 
 export const WebNavigator = ({ Comp, screenOptions, initialRouteName, initialRouteParams, children, ...props }) => {
-  const { name, params } = getInitialScreen(initialRouteName);
-  console.log('windoe', window.location.pathname);
-  console.log('ini', { name, params });
+  const { name, params } = getInitialScreen(initialRouteName, initialRouteParams);
   return (
-    <Comp screenOptions={screenOptions} initialRouteName={name || initialRouteName} initialRouteParams={params || initialRouteParams} {...props}>
+    <Comp screenOptions={screenOptions} initialRouteName={name} initialRouteParams={params} {...props}>
       {React.Children.map(children, (child) => {
         const initialParams = initialRouteName === child.props.name ? initialRouteParams : {};
         return React.cloneElement(child, { initialParams });
