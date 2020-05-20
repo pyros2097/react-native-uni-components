@@ -3,6 +3,10 @@ import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBrowserHistory, createMemoryHistory } from 'history';
 import * as queryString from 'query-string';
+export const createDrawerNavigator = require('./navigators/createDrawerNavigator').default;
+export const createStackNavigator = require('./navigators/createStackNavigator').default;
+export const createBottomTabNavigator = require('./navigators/createBottomTabNavigator').default;
+
 const history = Platform.OS === 'web' ? createBrowserHistory() : createMemoryHistory();
 
 export const getActiveScreen = (state) => {
@@ -27,14 +31,13 @@ export const getUrl = (name, params) => {
   return name[0].toLowerCase() + name.slice(1) + (query ? '?' + query : '');
 };
 
-export const WebNavigationContainer = ({ setNavigation, children }) => {
+export const WebNavigationContainer = ({ children }) => {
   const [currentScreen, setCurrentScreen] = useState(null);
   const navigationRef = useRef();
   useEffect(() => {
     if (navigationRef.current) {
       const state = navigationRef.current.getRootState();
       setCurrentScreen(getActiveScreen(state));
-      setNavigation(navigationRef.current);
     }
     return history.listen((location, action) => {
       if (action === 'POP') {
@@ -64,8 +67,9 @@ export const WebNavigationContainer = ({ setNavigation, children }) => {
 };
 
 export const WebNavigator = ({ Comp, screenOptions, initialRouteName, initialRouteParams, children, ...props }) => {
+  const { name, params } = getInitialScreen(initialRouteName);
   return (
-    <Comp screenOptions={screenOptions} initialRouteName={initialRouteName} {...props}>
+    <Comp screenOptions={screenOptions} initialRouteName={name || initialRouteName} initialRouteParams={params || initialRouteParams} {...props}>
       {React.Children.map(children, (child) => {
         const initialParams = initialRouteName === child.props.name ? initialRouteParams : {};
         return React.cloneElement(child, { initialParams });
