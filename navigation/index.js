@@ -68,6 +68,8 @@ export const WebNavigationContainer = ({ children }) => {
 
 export const WebNavigator = ({ Comp, screenOptions, initialRouteName, initialRouteParams, children, ...props }) => {
   const { name, params } = getInitialScreen(initialRouteName);
+  console.log('windoe', window.location.pathname);
+  console.log('ini', { name, params });
   return (
     <Comp screenOptions={screenOptions} initialRouteName={name || initialRouteName} initialRouteParams={params || initialRouteParams} {...props}>
       {React.Children.map(children, (child) => {
