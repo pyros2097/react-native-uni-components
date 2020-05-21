@@ -6,7 +6,9 @@ import { WebNavigationContainer } from './navigation';
 
 const App = ({ configure, children }) => {
   useEffect(() => {
-    configure();
+    if (configure) {
+      configure();
+    }
   }, []);
   // TODO: this error bounday should reload the app instead of goback
   return (
