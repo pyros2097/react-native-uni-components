@@ -2,7 +2,6 @@ import React from 'react';
 import { Touch } from './Box';
 import Spinner from './Spinner';
 import Text from './Text';
-import { useTheme } from './hooks';
 
 export default function Button({ title, loading = false, disabled = false, width = 300, borderRadius = 25, onPress }) {
   const { buttonText, buttonBackground, buttonBackgroundDisabled } = useTheme();

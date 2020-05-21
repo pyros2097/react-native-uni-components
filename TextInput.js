@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { TextInput } from 'react-native';
 import { useField } from '@unform/core';
 import ErrorLine from './ErrorLine';
-import { useTheme } from './hooks';
 
 export default function Input({ name, secure = false, type = 'default', width = 300, ...props }) {
   const theme = useTheme();
