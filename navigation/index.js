@@ -3,9 +3,6 @@ import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBrowserHistory, createMemoryHistory } from 'history';
 import * as queryString from 'query-string';
-export const createDrawerNavigator = require('./navigators/createDrawerNavigator').default;
-export const createStackNavigator = require('./navigators/createStackNavigator').default;
-export const createBottomTabNavigator = require('./navigators/createBottomTabNavigator').default;
 
 const history = Platform.OS === 'web' ? createBrowserHistory() : createMemoryHistory();
 
@@ -22,9 +19,11 @@ export const getInitialScreen = (initialRouteName, initialRouteParams) => {
     const path = window.location.pathname.replace('/', '');
     const params = queryString.parse(window.location.search);
     if (path) {
+      console.log('path');
       return { name: path[0].toUpperCase() + path.slice(1), params };
     }
   }
+  console.log('not path');
   return { name: initialRouteName, params: initialRouteParams };
 };
 
@@ -70,6 +69,7 @@ export const WebNavigationContainer = ({ children }) => {
 
 export const WebNavigator = ({ Comp, screenOptions, initialRouteName, initialRouteParams, children, ...props }) => {
   const { name, params } = getInitialScreen(initialRouteName, initialRouteParams);
+  console.log('name', { name, params });
   return (
     <Comp screenOptions={screenOptions} initialRouteName={name} initialRouteParams={params} {...props}>
       {React.Children.map(children, (child) => {

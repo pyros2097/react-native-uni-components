@@ -8,9 +8,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "react-native-uni-components": "0.2.1",
     "expo": "~37.0.3",
-    "expo-updates": "~0.1.0"
+    "react-native-uni-components": "0.3.2"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

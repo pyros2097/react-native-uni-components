@@ -7,6 +7,7 @@ export default class ErrorHandler extends React.Component {
     super(props);
     this.state = {
       hasError: false,
+      eventId: '',
     };
   }
 
@@ -25,9 +26,13 @@ export default class ErrorHandler extends React.Component {
   }
 
   render() {
-    const { children, navigation, reloadRouteName } = this.props;
-    const { eventId } = this.state;
-    if (this.state.hasError) {
+    const { children, navigation, fallback } = this.props;
+    const { hasError, eventId } = this.state;
+    const FallbackComp = fallback;
+    if (hasError && FallbackComp) {
+      return <FallbackComp navigation={navigation} eventId={eventId} />;
+    }
+    if (hasError) {
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ fontSize: 22, fontWeight: '700', color: '#004E7A', textAlign: 'center' }}>Oops something went wrong on our side.</Text>
@@ -43,7 +48,7 @@ export default class ErrorHandler extends React.Component {
             <Button
               title="Go Back"
               onPress={() => {
-                navigation.replace(reloadRouteName, { reload: true });
+                navigation.goBack();
               }}
             />
           </View>
