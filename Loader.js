@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View } from 'react-native';
+import Spinner from './Spinner';
 
-export default ({ size = 32, color = 'black' }) => (
+export default () => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <ActivityIndicator size={size} color={color} />
+    <Spinner />
   </View>
 );

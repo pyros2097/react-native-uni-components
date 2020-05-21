@@ -7,13 +7,13 @@ import Box from './Box';
 import Text from './Text';
 import TextInput from './TextInput';
 import Spinner from './Spinner';
+import Loader from './Loader';
 import ErrorLine from './ErrorLine';
 import Button from './Button';
 import Image from './Image';
 import Theme from './Theme';
 import Loader from './Loader';
 import ErrorBoundary from './ErrorBoundary';
-import Sentry from './sentry';
 
 // TODO: something like Platform.select by desktop/mobile
 
@@ -63,4 +63,4 @@ const screen = (Comp, loaderComp = null, errorComp = null) => (props) => (
   </ErrorBoundary>
 );
 
-export { App, Box, Text, TextInput, Spinner, ErrorLine, Button, Image, Theme, ErrorBoundary, Sentry, screen, useForm };
+export { App, Box, Text, TextInput, Spinner, Loader, ErrorLine, Button, Image, Theme, ErrorBoundary, screen, useForm };

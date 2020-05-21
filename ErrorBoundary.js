@@ -1,5 +1,6 @@
 import React from 'react';
 import { Platform, View, Text, Button } from 'react-native';
+import RNRestart from 'react-native-restart';
 import Sentry from './sentry';
 
 export default class ErrorHandler extends React.Component {
@@ -26,11 +27,11 @@ export default class ErrorHandler extends React.Component {
   }
 
   render() {
-    const { children, navigation, fallback } = this.props;
+    const { children, fallback } = this.props;
     const { hasError, eventId } = this.state;
     const FallbackComp = fallback;
     if (hasError && FallbackComp) {
-      return <FallbackComp navigation={navigation} eventId={eventId} />;
+      return <FallbackComp eventId={eventId} />;
     }
     if (hasError) {
       return (
@@ -46,9 +47,13 @@ export default class ErrorHandler extends React.Component {
           )}
           <View style={{ marginTop: 60 }}>
             <Button
-              title="Go Back"
+              title="Reload"
               onPress={() => {
-                navigation.goBack();
+                if (Platform.OS === 'web') {
+                  window.location = '/';
+                } else {
+                  RNRestart.Restart();
+                }
               }}
             />
           </View>

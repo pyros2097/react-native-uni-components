@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { RecoilRoot } from 'recoil';
 import { MenuProvider } from 'react-native-popup-menu';
 import ErrorBoundary from './ErrorBoundary';
-import { WebNavigationContainer } from './navigation';
+import { Router } from './react-router';
 
 const App = ({ configure, children }) => {
   useEffect(() => {
@@ -10,14 +10,13 @@ const App = ({ configure, children }) => {
       configure();
     }
   }, []);
-  // TODO: this error bounday should reload the app instead of goback
   return (
     <ErrorBoundary>
-      <MenuProvider>
-        <RecoilRoot>
-          <WebNavigationContainer>{children}</WebNavigationContainer>
-        </RecoilRoot>
-      </MenuProvider>
+      <RecoilRoot>
+        <MenuProvider>
+          <Router>{children}</Router>
+        </MenuProvider>
+      </RecoilRoot>
     </ErrorBoundary>
   );
 };
