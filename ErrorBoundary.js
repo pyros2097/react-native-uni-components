@@ -27,12 +27,8 @@ export default class ErrorHandler extends React.Component {
   }
 
   render() {
-    const { children, fallback } = this.props;
+    const { children } = this.props;
     const { hasError, eventId } = this.state;
-    const FallbackComp = fallback;
-    if (hasError && FallbackComp) {
-      return <FallbackComp eventId={eventId} />;
-    }
     if (hasError) {
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

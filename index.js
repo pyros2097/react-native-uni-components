@@ -1,23 +1,23 @@
-import React, { Suspense, useState } from 'react';
+import React, { useState } from 'react';
 import { Keyboard } from 'react-native';
 import { useForm as useHookForm } from 'react-hook-form';
+import { MenuProvider } from 'react-native-popup-menu';
 import * as yup from 'yup';
-import App from './App';
 import Box from './Box';
 import Text from './Text';
 import TextInput from './TextInput';
 import Spinner from './Spinner';
-import Loader from './Loader';
 import ErrorLine from './ErrorLine';
 import Button from './Button';
 import Image from './Image';
 import Theme from './Theme';
 import Loader from './Loader';
 import ErrorBoundary from './ErrorBoundary';
+import Suspense from './Suspense';
 
 // TODO: something like Platform.select by desktop/mobile
 
-const useForm = ({ initial, schema, getErrorMsg, onSubmit }) => {
+export const useForm = ({ initial, schema, getErrorMsg, onSubmit }) => {
   const [error, setError] = useState(null);
   const [isSubmitting, setSubmitting] = useState(false);
   const { control, handleSubmit, errors, reset, triggerValidation } = useHookForm({
@@ -55,12 +55,24 @@ const useForm = ({ initial, schema, getErrorMsg, onSubmit }) => {
   };
 };
 
-const screen = (Comp, loaderComp = null, errorComp = null) => (props) => (
-  <ErrorBoundary fallback={errorComp} {...props}>
-    <Suspense fallback={loaderComp || Loader}>
-      <Comp {...props} />
+export const route = (Comp) => () => (
+  <ErrorBoundary>
+    <Suspense>
+      <Comp />
     </Suspense>
   </ErrorBoundary>
 );
 
-export { App, Box, Text, TextInput, Spinner, Loader, ErrorLine, Button, Image, Theme, ErrorBoundary, screen, useForm };
+export const app = (Comp) => () => {
+  return (
+    <MenuProvider>
+      <ErrorBoundary>
+        <Suspense>
+          <Comp />
+        </Suspense>
+      </ErrorBoundary>
+    </MenuProvider>
+  );
+};
+
+export { Box, Text, TextInput, Spinner, Loader, ErrorLine, Button, Image, Theme, ErrorBoundary };

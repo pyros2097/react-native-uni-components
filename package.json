@@ -1,6 +1,6 @@
 {
   "name": "react-native-uni-components",
-  "version": "0.4.0",
+  "version": "0.5.3",
   "description": "A universal component library with error handling, form handling and suspense",
   "main": "index.js",
   "scripts": {
@@ -24,8 +24,8 @@
     "react-native-web": "~0.11.7",
     "react-router-dom": "^5.2.0",
     "react-router-native": "^5.2.0",
-    "recoil": "0.0.7",
     "use-media": "^1.4.0",
+    "use-promise": "^2.0.1",
     "yup": "^0.29.0"
   },
   "repository": {

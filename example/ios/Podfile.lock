@@ -27,10 +27,12 @@ PODS:
   - EXPermissions (8.1.0):
     - UMCore
     - UMPermissionsInterface
+  - EXSplashScreen (0.2.3):
+    - UMCore
   - EXSQLite (8.1.0):
     - UMCore
     - UMFileSystemInterface
-  - EXUpdates (0.1.3):
+  - EXUpdates (0.2.5):
     - React
     - UMCore
   - EXWebBrowser (8.2.1):
@@ -53,6 +55,7 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - JKBigInteger2 (0.0.5)
   - RCTRequired (0.61.5)
   - RCTTypeSafety (0.61.5):
     - FBLazyVector (= 0.61.5)
@@ -216,8 +219,6 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
   - React-jsinspector (0.61.5)
-  - react-native-safe-area-context (0.7.3):
-    - React
   - React-RCTActionSheet (0.61.5):
     - React-Core/RCTActionSheetHeaders (= 0.61.5)
   - React-RCTAnimation (0.61.5):
@@ -253,19 +254,18 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
     - ReactCommon/jscallinvoker (= 0.61.5)
-  - RNCMaskedView (0.1.10):
+  - RNAWSCognito (4.3.0):
+    - JKBigInteger2 (= 0.0.5)
     - React
   - RNGestureHandler (1.6.1):
     - React
-  - RNReanimated (1.7.1):
+  - RNReanimated (1.9.0):
     - React
-  - RNScreens (2.2.0):
-    - React
-  - UMAppLoader (1.0.1)
+  - UMAppLoader (1.0.2)
   - UMBarCodeScannerInterface (5.1.0)
   - UMCameraInterface (5.1.0)
   - UMConstantsInterface (5.1.0)
-  - UMCore (5.1.0)
+  - UMCore (5.1.2)
   - UMFaceDetectorInterface (5.1.0)
   - UMFileSystemInterface (5.1.0)
   - UMFontInterface (5.1.0)
@@ -291,6 +291,7 @@ DEPENDENCIES:
   - EXLinearGradient (from `../node_modules/expo-linear-gradient/ios`)
   - EXLocation (from `../node_modules/expo-location/ios`)
   - EXPermissions (from `../node_modules/expo-permissions/ios`)
+  - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - EXSQLite (from `../node_modules/expo-sqlite/ios`)
   - EXUpdates (from `../node_modules/expo-updates/ios`)
   - EXWebBrowser (from `../node_modules/expo-web-browser/ios`)
@@ -309,7 +310,6 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
-  - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -321,10 +321,9 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
-  - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - RNAWSCognito (from `../node_modules/amazon-cognito-identity-js`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
-  - RNScreens (from `../node_modules/react-native-screens`)
   - UMAppLoader (from `../node_modules/unimodules-app-loader/ios`)
   - UMBarCodeScannerInterface (from `../node_modules/unimodules-barcode-scanner-interface/ios`)
   - UMCameraInterface (from `../node_modules/unimodules-camera-interface/ios`)
@@ -343,6 +342,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - boost-for-react-native
+    - JKBigInteger2
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -365,6 +365,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-location/ios"
   EXPermissions:
     :path: "../node_modules/expo-permissions/ios"
+  EXSplashScreen:
+    :path: "../node_modules/expo-splash-screen/ios"
   EXSQLite:
     :path: "../node_modules/expo-sqlite/ios"
   EXUpdates:
@@ -397,8 +399,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
-  react-native-safe-area-context:
-    :path: "../node_modules/react-native-safe-area-context"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -419,14 +419,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
-  RNCMaskedView:
-    :path: "../node_modules/@react-native-community/masked-view"
+  RNAWSCognito:
+    :path: "../node_modules/amazon-cognito-identity-js"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
-  RNScreens:
-    :path: "../node_modules/react-native-screens"
   UMAppLoader:
     :path: "../node_modules/unimodules-app-loader/ios"
   UMBarCodeScannerInterface:
@@ -468,13 +466,15 @@ SPEC CHECKSUMS:
   EXLinearGradient: 8189387e3a65c2a9ba5507432e3a099ea8f7ea86
   EXLocation: 0397e4f11666d6ceb026b6424fdf66995c604964
   EXPermissions: d2cafee9c72578ecc9ca121481e6c4a04a798861
+  EXSplashScreen: 6888f24a847a2cdbf5ca4d996300adf9cc2726b4
   EXSQLite: 15268ec49f859e4594fe5b0a1c7a47913da0b67e
-  EXUpdates: e496c29a42e361ca22791eb056a9adf6538ce140
+  EXUpdates: f3c3e613f022e36b544bdb39f3e865ed257b0f69
   EXWebBrowser: 6364e9e1ea73f6c3c2e6e3cc0ac17259a260e3a8
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  JKBigInteger2: e91672035c42328c48b7dd015b66812ddf40ca9b
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
   React: b6a59ef847b2b40bb6e0180a97d0ca716969ac78
@@ -484,7 +484,6 @@ SPEC CHECKSUMS:
   React-jsi: cb2cd74d7ccf4cffb071a46833613edc79cdf8f7
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
-  react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
   React-RCTAnimation: 791a87558389c80908ed06cc5dfc5e7920dfa360
   React-RCTBlob: d89293cc0236d9cb0933d85e430b0bbe81ad1d72
@@ -495,15 +494,14 @@ SPEC CHECKSUMS:
   React-RCTText: 9ccc88273e9a3aacff5094d2175a605efa854dbe
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
-  RNCMaskedView: f5c7d14d6847b7b44853f7acb6284c1da30a3459
+  RNAWSCognito: 414956af952c20e3ad8b145eab190440fb4e6eeb
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
-  RNReanimated: 4e102df74a9674fa943e05f97f3362b6e44d0b48
-  RNScreens: 812b79d384e2bea7eebc4ec981469160d4948fd5
-  UMAppLoader: 83885655be9ce3e5b3684d20f9973da67b78b3a9
+  RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
+  UMAppLoader: ae5eaee9f3c8cc847c631a579fed20d217de5913
   UMBarCodeScannerInterface: aa3409ab9d108866e55c09ad0292e4a6c08a7775
   UMCameraInterface: 9d5da92c521e0af7815afbf77ea19bd0312b4928
   UMConstantsInterface: 4a1d3062a89421d3290bbe8f75efabd849935bea
-  UMCore: db7c5b08deef44d881b9524e5ab39fd14bdc24fe
+  UMCore: cb544737bc72ecfccae9dd476e4d647468b4ebd0
   UMFaceDetectorInterface: c6d69c914426fc29f5a2442411a575e887adb823
   UMFileSystemInterface: bee6c9ca4f3d70da5f7c9752efc8b3f3a7f47b61
   UMFontInterface: 884955c5fd329095e2072d16de9b5bf1bce93005
@@ -514,6 +512,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 4e6c4c34a89512e2225d336154df1cb689226a29
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 1d9f91e88cf27690c91e00005b149703f944f7e1
+PODFILE CHECKSUM: 2d9e86db87048dad9733d1c9ef5727a936b10c15
 
 COCOAPODS: 1.9.1
