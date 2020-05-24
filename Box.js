@@ -9,9 +9,9 @@ export default function Box({ key, ref, children, ...props }) {
   );
 }
 
-export function Touch({ key, ref, disabled, onPress, children, ...props }) {
+export function Touch({ testID, key, ref, disabled, onPress, children, ...props }) {
   return (
-    <TouchableOpacity key={key} ref={ref} disabled={disabled} onPress={onPress} style={props}>
+    <TouchableOpacity testID={testID} key={key} ref={ref} disabled={disabled} onPress={onPress} style={props}>
       {children}
     </TouchableOpacity>
   );

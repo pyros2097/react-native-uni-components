@@ -3,7 +3,7 @@ import { Keyboard } from 'react-native';
 import { useForm as useHookForm } from 'react-hook-form';
 import { MenuProvider } from 'react-native-popup-menu';
 import * as yup from 'yup';
-import Box from './Box';
+import Box, { Touch } from './Box';
 import Text from './Text';
 import TextInput from './TextInput';
 import Spinner from './Spinner';
@@ -75,4 +75,4 @@ export const app = (Comp) => () => {
   );
 };
 
-export { Box, Text, TextInput, Spinner, Loader, ErrorLine, Button, Image, Theme, ErrorBoundary };
+export { Box, Touch, Text, TextInput, Spinner, Loader, ErrorLine, Button, Image, Theme, ErrorBoundary };

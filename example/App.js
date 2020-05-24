@@ -4,7 +4,7 @@ import Amplify from '@aws-amplify/core';
 import Auth from '@aws-amplify/auth';
 import { HttpProvider } from '@pyros2097/kvdb';
 import { initStore, usePromise, useLocal } from '@pyros2097/use-promise';
-import { Box, app, screen } from 'react-native-uni-components';
+import { Box, app, route } from 'react-native-uni-components';
 import { Router, Link, Route, Switch, useHistory, useLocation } from 'react-native-uni-components/react-router';
 import queryString from 'query-string';
 import Drawer from './Drawer';
@@ -28,7 +28,7 @@ const store = HttpProvider({
   getAuthorizationToken: () => Auth.currentAuthenticatedUser().then((user) => user.signInUserSession.idToken.jwtToken),
 });
 
-const Home = screen(() => {
+const Home = route(() => {
   const history = useHistory();
   const [{ color }] = useLocal('theme');
   return (
@@ -42,7 +42,7 @@ const Home = screen(() => {
 const useKey = (key) => usePromise(store.get, key);
 const getCurrentUserId = () => usePromise(async () => (await Auth.currentAuthenticatedUser()).username, 'currentUserId');
 
-const Login = screen(() => {
+const Login = route(() => {
   const history = useHistory();
   const location = useLocation();
   const params = queryString.parse(location.search);
@@ -72,7 +72,7 @@ const Login = screen(() => {
   );
 });
 
-const List = screen(() => {
+const List = route(() => {
   const [userId] = getCurrentUserId();
   const [currentUser] = useKey('User:' + userId);
   const [currentOrg, setOrg] = useKey('Organisation:1');
