@@ -3,7 +3,7 @@ import { Platform, TouchableOpacity } from 'react-native';
 import { useLocal } from '@pyros2097/use-promise';
 import { Box } from 'react-native-uni-components';
 import { useHistory } from 'react-native-uni-components/react-router';
-import Menu from './icons/menu.svg';
+import Menu from './icons/menu-outline.svg';
 import ArrowBack from './icons/chevron-back-outline.svg';
 
 const Icon = ({ children }) => {
