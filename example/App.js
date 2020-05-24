@@ -20,7 +20,7 @@ initStore({
   theme: {
     color: 'red',
   },
-  navigationShown: true,
+  navigationShown: false,
 });
 
 const store = HttpProvider({
@@ -118,14 +118,15 @@ const NoMatch = () => {
   );
 };
 
-const DrawerContent = ({ close }) => {
+const DrawerContent = () => {
+  const [_, setShown] = useLocal('navigationShown');
   const history = useHistory();
   const TouchLink = ({ to, children }) => {
     return (
       <TouchableOpacity
         onPress={() => {
           history.push(to);
-          close();
+          setShown(false);
         }}
       >
         {children}
@@ -134,7 +135,7 @@ const DrawerContent = ({ close }) => {
   };
   return (
     <Box flex={1} backgroundColor="gray">
-      <TouchLink to="/" close={close}>
+      <TouchLink to="/">
         <Text>Home</Text>
       </TouchLink>
       <TouchLink to="/login">
